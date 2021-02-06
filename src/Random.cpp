@@ -1,5 +1,8 @@
 #include "Random.h"
-#include <cstdlib>
+#include <stdlib.h>
+
+
+using namespace std;
 
 int Random(DamageRange A)
 {
@@ -9,4 +12,8 @@ int Random(DamageRange A)
 int Random(int A, int B)
 {
 	return A + rand() % ((B + 1) - A);
+}
+
+int RandomPosition(int Min, int Max){
+	return Min + rand() % ( Max - Min + 1 );
 }

@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <iostream>
 
+using namespace std;
 
 Monster::Monster(const std::string& name, int hp, int acc,
 	int xpReward, int armor, const std::string& weaponName,
