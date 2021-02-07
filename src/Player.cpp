@@ -55,7 +55,7 @@ int Player::getGold()
 
  void Player::setGold(int gold)
 {
-	 mgold= gold;
+	 mgold += gold;
 }
 
 void Player::levelUp()
@@ -109,26 +109,34 @@ void Player::victory(int xp)
 	mExpPoints += xp;
 }
 
-void Player::gameover()
+bool Player::gameover()
 {
 	std::cout << "You died in battle..." << std::endl;
 	std::cout << std::endl;
 	std::cout << "================================" << std::endl;
 	std::cout << "GAME OVER!" << std::endl;
 	std::cout << "================================" << std::endl;
-        std::cout << "Press 'n' to new start or press 'q' to quit ";
-	char select;
-        std::cin >> select;
-	
-	if (select == 'n')
+	while (true)
 	{
-	    createClass();	
-	}
+        	std::cout << "Press 'n' to new start or press 'q' to quit ";
+		char select;
+       		std::cin >> select;
 	
-	else if (select=='q')
-	{
-		std::cout << std::endl;
+		if (select == 'n')
+		{
+			return false;
+		}
+	
+		else if (select=='q')
+		{
+			return true;
+		}
+		else
+		{
+			std::cout<<"invalid input"<< std::endl;
+		}
 	}
+	return true;
 }
 
 bool Player::attack(Monster& monster)
