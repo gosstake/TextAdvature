@@ -22,6 +22,8 @@ public:
 	void victory(int xp);
 	void gameover();
 	void displayHitPoints();
+	int getGold();
+	void setGold(int gold);
 private:
 	std::string mName;
 	std::string mClassName;
@@ -33,7 +35,7 @@ private:
 	int mLevel;
 	int mArmor;
 	Weapon mWeapon;
-
+	int mgold;
 
 
 };

@@ -19,6 +19,7 @@ Player::Player()
 	mWeapon.mName = "Default Weapon Name";
 	mWeapon.mRange.mLowDamage = 0;
 	mWeapon.mRange.mHighDamage = 0;
+	mgold = 0;
 }
 
 
@@ -45,6 +46,16 @@ void Player::displayHitPoints()
 void Player::takeDamage(int damage)
 {
 	mHitPoints -= damage;
+}
+
+int Player::getGold()
+{
+	return mgold;
+}
+
+ void Player::setGold(int gold)
+{
+	 mgold= gold;
 }
 
 void Player::levelUp()
@@ -83,6 +94,7 @@ void Player::viewStats()
 	std::cout << "Armor = " << mArmor << std::endl;
 	std::cout << "Weapon Name = " << mWeapon.mName << std::endl;
 	std::cout << "Weapon Damage = " << mWeapon.mRange.mLowDamage << "-" << mWeapon.mRange.mHighDamage << std::endl;
+	std::cout << "Gold = " << mgold << std::endl;
 	std::cout << std::endl;
 	std::cout << "END PLAYER STATS" << std::endl;
 	std::cout << "================" << std::endl;
@@ -104,10 +116,19 @@ void Player::gameover()
 	std::cout << "================================" << std::endl;
 	std::cout << "GAME OVER!" << std::endl;
 	std::cout << "================================" << std::endl;
-	std::cout << "Press 'q' to quit: ";
-	char q = 'q';
-	std::cin >> q;
-	std::cout << std::endl;
+        std::cout << "Press 'n' to new start or press 'q' to quit ";
+	char select;
+        std::cin >> select;
+	
+	if (select == 'n')
+	{
+	    createClass();	
+	}
+	
+	else if (select=='q')
+	{
+		std::cout << std::endl;
+	}
 }
 
 bool Player::attack(Monster& monster)
