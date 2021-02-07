@@ -18,6 +18,16 @@ int Map::getPlayerYPos()
 	return mPlayerYPos;
 }
 
+void Map::setPlayerXPos(int x) 
+{
+	mPlayerXPos=x;
+}
+
+void Map::setPlayerYPos(int y) 
+{
+	mPlayerYPos=y;
+}
+
 void Map::movePlayer()
 {
 	int selection = 1;
@@ -49,21 +59,29 @@ Monster* Map::checkRandomEncounter()
 		{
 			return 0;
 		}
-		else if (roll >= 6 && roll <= 10)
+		else if (roll >= 6 && roll <= 9)
+		{
+			monster = new Monster("Demon", 4, 2, 50, 0, "Knife", 2, 4);
+			std::cout << "You encountered a Demon!" << std::endl;
+			std::cout << "Prepare for battle!" << std::endl;
+			std::cout << std::endl;
+
+		}
+		else if (roll >= 10 && roll <= 13)
 		{
 			monster = new Monster("Orc", 10, 8, 200, 1, "Short Sword", 2, 7);
 			std::cout << "You encountered an Orc!" << std::endl;
 			std::cout << "Prepare for battle!" << std::endl;
 			std::cout << std::endl;
 		}
-		else if (roll >= 11 && roll <= 15)
+		else if (roll >= 14 && roll <= 17)
 		{
 			monster = new Monster("Goblin", 6, 6, 100, 0, "Dagger", 1, 5);
 			std::cout << "You encountered a Goblin!" << std::endl;
 			std::cout << "Prepare for battle!" << std::endl;
 			std::cout << std::endl;
 		}
-		else if (roll >= 16 && roll <= 19)
+		else if (roll >= 18 && roll <= 19)
 		{
 			monster = new Monster("Ogre", 20, 12, 500, 2, "Club", 3, 8);
 			std::cout << "You encountered an Ogre!" << std::endl;

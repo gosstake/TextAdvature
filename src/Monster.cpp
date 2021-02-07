@@ -15,6 +15,7 @@ Monster::Monster(const std::string& name, int hp, int acc,
 	mWeapon.mName = weaponName;
 	mWeapon.mRange.mLowDamage = lowDamage;
 	mWeapon.mRange.mHighDamage = highDamage;
+	
 }
 
 bool Monster::isDead() 
@@ -47,6 +48,7 @@ void Monster::displayHitPoints()
 	std::cout << mName << "'s hitpoints: " << mHitPoints << std::endl;
 }
 
+
 void Monster::attack(Player& player)
 {
 	std::cout << "A " << mName << " attacks you " << "with a " << mWeapon.mName << std::endl;
@@ -57,6 +59,8 @@ void Monster::attack(Player& player)
 		if (totalDamage <= 0)
 		{
 			std::cout << "The monster's attack failed to " << "penetrate your armor." << std::endl;
+			player.setGold(totalDamage);
+			
 		}
 		else
 		{
