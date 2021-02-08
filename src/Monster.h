@@ -27,5 +27,6 @@ private:
 	int mExpReward;
 	int mArmor;
 	Weapon mWeapon;
+	
 };
 

@@ -10,6 +10,8 @@ public:
 	Map();
 	int getPlayerXPos();
 	int getPlayerYPos();
+	void setPlayerXPos(int x);
+	void setPlayerYPos(int y);
 	void movePlayer();
 	Monster* checkRandomEncounter();
 	void printPlayerPos();

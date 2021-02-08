@@ -15,6 +15,7 @@ Monster::Monster(const std::string& name, int hp, int acc,
 	mWeapon.mName = weaponName;
 	mWeapon.mRange.mLowDamage = lowDamage;
 	mWeapon.mRange.mHighDamage = highDamage;
+	
 }
 
 bool Monster::isDead() 
@@ -47,6 +48,7 @@ void Monster::displayHitPoints()
 	std::cout << mName << "'s hitpoints: " << mHitPoints << std::endl;
 }
 
+
 void Monster::attack(Player& player)
 {
 	std::cout << "A " << mName << " attacks you " << "with a " << mWeapon.mName << std::endl;
@@ -70,5 +72,5 @@ void Monster::attack(Player& player)
 		std::cout << "The " << mName << " missed!" << std::endl;
 	}
 	std::cout << std::endl;
-	
+
 }
