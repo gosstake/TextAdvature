@@ -22,6 +22,7 @@ public:
 	void attack(Player& player);
 	void takeDamage(int damage);
 	void displayHitPoints();
+	int getGold();
 private:
 	std::string mName;
 	int mHitPoints;
@@ -29,6 +30,7 @@ private:
 	int mExpReward;
 	int mArmor;
 	Weapon mWeapon;
+	
 };
 
 #endif // MONSTER_H

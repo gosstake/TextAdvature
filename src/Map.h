@@ -20,6 +20,8 @@ public:
 	void displayMap(Monster& monster, Tunnel& _mTunnel, TreasureBox& _mTreasureBox);
 	int getPlayerXPos();
 	int getPlayerYPos();
+	void setPlayerXPos(int x);
+	void setPlayerYPos(int y);
 	void movePlayer();
 	void movePlayer(Tunnel& _mTunnel);
 	Monster* checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, TreasureBox& _treasureBox );

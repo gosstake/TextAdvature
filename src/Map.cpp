@@ -41,6 +41,7 @@ int Map::getPlayerYPos()
 	return mPlayerYPos;
 }
 
+
 void Map::displayMap(Monster& monster, Tunnel& _mTunnel, TreasureBox& _mTreasureBox) {
 		std::cout << std::endl;
 		for(int i  = 0; i < mapHight; i++){
@@ -64,6 +65,17 @@ void Map::displayMap(Monster& monster, Tunnel& _mTunnel, TreasureBox& _mTreasure
 			}
 			std::cout << std::endl;
 		}
+}
+
+
+void Map::setPlayerXPos(int x) 
+{
+	mPlayerXPos=x;
+}
+
+void Map::setPlayerYPos(int y) 
+{
+	mPlayerYPos=y;
 }
 
 void Map::movePlayer(Tunnel &_mTunnel)
@@ -186,9 +198,6 @@ Monster* Map::checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, Treas
 					std::cout << std::endl;
 				}
 			 }
-		
-		}
-		
 	return monster;
 }
 

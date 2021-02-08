@@ -2,7 +2,8 @@
 #include "Monster.h"
 #include <string>
 #include <iostream>
-
+#include <fstream>
+#include "Map.h"
 
 using namespace std;
 
@@ -22,6 +23,8 @@ Player::Player()
 	mWeapon.mRange.mHighDamage = 0;
 	Nmagic =  noWord;
 	Nmagics.clear();
+	mgold = 0;
+
 }
 
 
@@ -45,9 +48,35 @@ void Player::displayHitPoints()
 	std::cout << mName << "'s hitpoints: " << mHitPoints << std::endl;
 }
 
+void Player::setWeapon(int LowDamage, int HighDamage, std::string Name)
+{
+	mWeapon.mRange.mLowDamage=LowDamage;
+	mWeapon.mRange.mHighDamage=HighDamage;
+	mWeapon.mName=Name;
+}
+
 void Player::takeDamage(int damage)
 {
 	mHitPoints -= damage;
+}
+ 
+ int Player::getGold()
+{
+	return mgold;
+}
+void Player::setArmor(int armor)
+{
+	mArmor += armor;
+}
+
+int Player::getGold()
+{
+	return mgold;
+}
+
+ void Player::setGold(int gold)
+{
+	 mgold += gold;
 }
 
 void Player::levelUp()
@@ -70,6 +99,12 @@ void Player::rest()
 	mHitPoints = mMaxHitPoints;
 }
 
+void Player::heal()
+{
+	std::cout << "healing....." << std::endl;
+	mHitPoints = mMaxHitPoints;
+}
+
 void Player::viewStats()
 {
 	std::cout << "PLAYER STATS" << std::endl;
@@ -77,6 +112,7 @@ void Player::viewStats()
 	std::cout << std::endl;
 	std::cout << "Name = " << mName << std::endl;
 	std::cout << "Class = " << mClassName << std::endl;
+  std::cout << "Gold = " << mgold << std::endl;
 	std::cout << "Accuracy = " << mAccuracy << std::endl;
 	std::cout << "Hitpoints = " << mHitPoints << std::endl;
 	std::cout << "MaxHitpoints = " << mMaxHitPoints << std::endl;
@@ -102,13 +138,69 @@ void Player::viewStats()
 			}	 
 		}
 	}
-	
 	std::cout << std::endl;
 	std::cout << "END PLAYER STATS" << std::endl;
 	std::cout << "================" << std::endl;
 	std::cout << std::endl;
 }
 
+void Player::save(Map& gameMap)
+{
+	int x;
+	int y;
+	x= gameMap.getPlayerXPos();
+	y= gameMap.getPlayerYPos();
+
+	std::ofstream Ausgabe;
+	Ausgabe.open("savedGame.txt");
+if(Ausgabe)
+{
+	Ausgabe <<mClassName<<std::endl;
+	Ausgabe <<mAccuracy<<std::endl;
+	Ausgabe <<mHitPoints<<std::endl;
+	Ausgabe <<mMaxHitPoints<<std::endl;
+	Ausgabe <<mExpPoints<<std::endl;
+	Ausgabe <<mNextLevelExp<<std::endl;
+	Ausgabe <<mArmor<<std::endl;
+	Ausgabe <<mLevel<<std::endl;
+	Ausgabe <<mWeapon.mName<<std::endl;
+	Ausgabe <<mWeapon.mRange.mHighDamage<<std::endl;
+	Ausgabe <<mWeapon.mRange.mLowDamage<<std::endl;
+	Ausgabe <<mgold<<std::endl;
+	Ausgabe <<x<<std::endl;
+	Ausgabe <<y<<std::endl;
+}
+	Ausgabe.close();
+}
+
+void Player::load(Map& gameMap)
+
+{
+	int x;
+	int y;
+	std::ifstream Eingabe;
+	Eingabe.open("savedGame.txt");
+if(Eingabe)
+{
+	Eingabe >> mClassName;
+	Eingabe >> mAccuracy;
+	Eingabe >> mHitPoints;
+	Eingabe >> mMaxHitPoints;
+	Eingabe >> mExpPoints;
+	Eingabe >> mNextLevelExp;
+	Eingabe >> mArmor;
+	Eingabe >> mLevel;
+	Eingabe >> mWeapon.mName;
+	Eingabe >> mWeapon.mRange.mHighDamage;
+	Eingabe >> mWeapon.mRange.mLowDamage;
+	Eingabe >> mgold;
+	Eingabe >> x;
+	Eingabe >> y;
+	gameMap.setPlayerXPos(x);
+	gameMap.setPlayerYPos(y);
+}
+	Eingabe.close();
+}
 
 void Player::victory(int xp)
 {
@@ -117,17 +209,30 @@ void Player::victory(int xp)
 	mExpPoints += xp;
 }
 
-void Player::gameover()
+bool Player::gameover()
 {
 	std::cout << "You died in battle..." << std::endl;
 	std::cout << std::endl;
 	std::cout << "================================" << std::endl;
 	std::cout << "GAME OVER!" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "Press 'q' to quit: ";
-	char q = 'q';
-	std::cin >> q;
-	std::cout << std::endl;
+	std::cout << "================================" << std::endl;	
+  std::cout << "Press 'n' to new start or press 'q' to quit ";
+  char select;
+  std::cin >> select;
+
+  if (select == 'n')
+  {
+    return false;
+  } else if (select=='q')
+  {
+    return true;
+  }
+  else
+  {
+    std::cout<<"invalid input"<< std::endl;
+  }
+
+	return true;
 }
 
 
