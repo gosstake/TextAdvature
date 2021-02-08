@@ -1,4 +1,7 @@
-#pragma once
+
+// monster
+#ifndef MONSTER_H
+#define MONSTER_H
 
 #include <string>
 #include "Weapon.h"
@@ -29,4 +32,6 @@ private:
 	Weapon mWeapon;
 	
 };
+
+#endif // MONSTER_H
 
