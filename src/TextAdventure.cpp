@@ -64,8 +64,9 @@ int main()
 					monster->attack(mainPlayer);
 					if (mainPlayer.isDead())
 					{
-						mainPlayer.gameover();
-						gameOver = true;
+						gameOver = mainPlayer.gameover();
+						if(!gameOver) 
+							mainPlayer.createClass();
 						break;
 					}
 				}

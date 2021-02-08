@@ -30,7 +30,8 @@ public:
 	void setGold(int gold);
 	void save(Map& gameMap);
 	void load(Map& gameMap);
-	private:
+  
+private:
 	std::string mName;
 	std::string mClassName;
 	int mAccuracy;
@@ -42,8 +43,6 @@ public:
 	int mArmor;
 	Weapon mWeapon;
 	int mgold;
-
-
 
 };
 

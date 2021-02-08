@@ -60,7 +60,6 @@ void Monster::attack(Player& player)
 		{
 			std::cout << "The monster's attack failed to " << "penetrate your armor." << std::endl;
 			player.setGold(totalDamage);
-			
 		}
 		else
 		{
@@ -73,4 +72,5 @@ void Monster::attack(Player& player)
 		std::cout << "The " << mName << " missed!" << std::endl;
 	}
 	std::cout << std::endl;
+
 }
