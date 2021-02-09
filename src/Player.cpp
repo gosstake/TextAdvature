@@ -85,6 +85,7 @@ void Player::levelUp()
 		mMaxHitPoints += Random(2, 6);
 		mArmor += Random(1, 2);
 		mLevel = mMaxHitPoints;
+		mgold += mLevel;
 	}
 }
 
@@ -188,11 +189,13 @@ void Player::load(int& _playerXpos,int& _playerYpos)
 	Eingabe.close();
 }
 
-void Player::victory(int xp)
+void Player::victory(int xp, int gold)
 {
 	std::cout << "You won the battle!" << std::endl;
 	std::cout << "You win " << xp << " experience points!" << std::endl << std::endl;
+	std::cout << "You win " << gold << "  gold nuggets!" << std::endl << std::endl;
 	mExpPoints += xp;
+	mgold += gold;
 }
 
 bool Player::gameover()

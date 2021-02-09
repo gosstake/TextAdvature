@@ -6,7 +6,7 @@ using namespace std;
 
 Monster::Monster(const std::string& name, int hp, int acc,
 	int xpReward, int armor, const std::string& weaponName,
-	int lowDamage, int highDamage)
+	int lowDamage, int highDamage, int gold)
 {
 	mName = name;
 	mHitPoints = hp;
@@ -16,6 +16,7 @@ Monster::Monster(const std::string& name, int hp, int acc,
 	mWeapon.mName = weaponName;
 	mWeapon.mRange.mLowDamage = lowDamage;
 	mWeapon.mRange.mHighDamage = highDamage;
+	mGold= gold;
 	
 }
 
@@ -27,6 +28,11 @@ bool Monster::isDead()
 int Monster::getXPReward()
 {
 	return mExpReward;
+}
+
+int Monster::getGold()
+{
+	return mGold;
 }
 
 std::string Monster::getName()

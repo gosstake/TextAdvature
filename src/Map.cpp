@@ -151,22 +151,22 @@ Monster* Map::checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, Treas
 		if ( roll < 5 ) { // 10
 			std::cout << "Monster Positon Roll: X: "<< XPosition_roll << " Y: " << YPosition_roll  << " Distance form You:  X: " << xdistance <<" Y: "<< ydistance << std::endl;
 			if ((xdistance - abs(mPlayerXPos) <= 2 ) && (XPosition_roll < abs(mPlayerXPos) + xdistance  && XPosition_roll > abs(mPlayerXPos) - xdistance) && (YPosition_roll < abs(mPlayerYPos) + ydistance  && YPosition_roll > abs(mPlayerYPos) - ydistance)) {
-				monster = new Monster("Orc", 10, 8, 200, 1, "Short Sword", 2, 7);
+				monster = new Monster("Orc", 10, 8, 200, 1, "Short Sword", 2, 7, 2);
 				std::cout << "You encountered an Orc!" << std::endl;
 				std::cout << "Prepare for battle!" << std::endl;
 				std::cout << std::endl;
 			} else if ((xdistance - abs(mPlayerXPos)  > 2  ) &&(XPosition_roll < abs(mPlayerXPos) + xdistance  && XPosition_roll > abs(mPlayerXPos) - xdistance) && (YPosition_roll < abs(mPlayerYPos) + ydistance  && YPosition_roll > abs(mPlayerYPos) - ydistance)) {
-				monster = new Monster("Goblin", 6, 6, 100, 0, "Dagger", 1, 5);
+				monster = new Monster("Goblin", 6, 6, 100, 0, "Dagger", 1, 5, 1);
 				std::cout << "You encountered a Goblin!" << std::endl;
 				std::cout << "Prepare for battle!" << std::endl;
 				std::cout << std::endl;
 			} else if ((ydistance - abs(mPlayerYPos) <= 2 ) &&(XPosition_roll < abs(mPlayerXPos) + xdistance  && XPosition_roll > abs(mPlayerXPos) - xdistance) && (YPosition_roll < abs(mPlayerYPos) + ydistance  && YPosition_roll > abs(mPlayerYPos) - ydistance)) {
-				monster = new Monster("Ogre", 20, 12, 500, 2, "Club", 3, 8);
+				monster = new Monster("Ogre", 20, 12, 500, 2, "Club", 3, 8, 3);
 				std::cout << "You encountered an Ogre!" << std::endl;
 				std::cout << "Prepare for battle!" << std::endl;
 				std::cout << std::endl;
 			} else if ((ydistance - abs(mPlayerYPos) > 2 ) &&(XPosition_roll < abs(mPlayerXPos) + xdistance  && XPosition_roll > abs(mPlayerXPos) - xdistance) && (YPosition_roll < abs(mPlayerYPos) + ydistance  && YPosition_roll > abs(mPlayerYPos) - ydistance)) {
-				monster = new Monster("Orc Lord", 25, 15, 2000, 5, "Two Handed Sword", 5, 20);
+				monster = new Monster("Orc Lord", 25, 15, 2000, 5, "Two Handed Sword", 5, 20, 5);
 				std::cout << "You encountered an Orc Lord!!!" << std::endl;
 				std::cout << "Prepare for battle!" << std::endl;
 				std::cout << std::endl;
