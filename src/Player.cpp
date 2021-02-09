@@ -225,7 +225,7 @@ bool Player::attack(Monster& monster)
 	bool switchingWeapon = true;
 	while(switchingWeapon) {
 		int selection = 1;
-		std::cout << "1) Attack, 2) Switch Weapon,3) Run ,3) Mana:";
+		std::cout << "1) Attack, 2) Switch Weapon, 3) Run, 4) Mana:";
 		std::cin >> selection;
 		std::cout << std::endl;
 		if(selection != 2 ){
