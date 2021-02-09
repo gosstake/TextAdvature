@@ -7,11 +7,10 @@
 #include "Treasure.h"
 #include <string>
 #include <vector>
-#include "Map.h"
+
 
 
 using namespace std;
-
 
 
 class Monster;
@@ -44,7 +43,7 @@ public:
 	void heal();
 	void viewStats();
 	void victory(int xp);
-	void gameover();
+	bool gameover();
 	void displayHitPoints();
 	bool Mana(Monster& _monster ,magicWords _nmagic );
  	magicWords getMagicWords(int _selection);	
@@ -55,9 +54,9 @@ public:
 	void setArmor(int armor);
 	int getGold();
 	void setGold(int gold);
-	void save(Map& gameMap);
-	void load(Map& gameMap);
-
+	void save(int _playerXpos, int _playerYpos);
+	void load(int& _playerXpos,int& _playerYpos);
+ 
 private:
 	std::string mName;
 	std::string mClassName;

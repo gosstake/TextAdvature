@@ -1,0 +1,10 @@
+^E:\MYREPGHUB2020\PYTHONREPS\TEXTADVATURE\BUILD\CMAKEFILES\FC6E3FC7166DF9F4A3077C1E9D66DE68\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/MyRepGHub2020/PythonReps/TextAdvature -BE:/MyRepGHub2020/PythonReps/TextAdvature/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/MyRepGHub2020/PythonReps/TextAdvature/build/TextAdventure.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

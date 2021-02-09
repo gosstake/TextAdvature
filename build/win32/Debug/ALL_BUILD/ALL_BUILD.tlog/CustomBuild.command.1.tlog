@@ -1,0 +1,10 @@
+^E:\MYREPGHUB2020\PYTHONREPS\TEXTADVATURE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/MyRepGHub2020/PythonReps/TextAdvature -BE:/MyRepGHub2020/PythonReps/TextAdvature/build --check-stamp-file E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

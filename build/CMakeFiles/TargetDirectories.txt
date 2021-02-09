@@ -1,0 +1,9 @@
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/NightlyMemoryCheck.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/Experimental.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/TextAdventure.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/Continuous.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/Nightly.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/INSTALL.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/RUN_TESTS.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/ALL_BUILD.dir
+E:/MyRepGHub2020/PythonReps/TextAdvature/build/CMakeFiles/ZERO_CHECK.dir

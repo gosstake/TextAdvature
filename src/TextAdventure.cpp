@@ -28,13 +28,14 @@ int main()
 	cout<<"1) Yes, 2) No"<<endl;
 	cin>>sel;
 
-	if (sel==1)
-	{
-		mainPlayer.load(gameMap);
-	}
-	else
-	{
-	mainPlayer.createClass();
+	if (sel==1) {
+		int x = 0;
+		int y = 0;
+		mainPlayer.load(x, y);
+		gameMap.setPlayerXPos(x);
+		gameMap.setPlayerYPos(y);
+	} else {
+		mainPlayer.createClass();
 	}
 
 	bool gameOver = false;
@@ -45,7 +46,7 @@ int main()
 		gameMap.printPlayerPos();
 		
 		gameMap.printPlayerPos();
-		gameShop.playerArrived(gameMap,mainPlayer, gameShop);
+		gameShop.playerArrived(gameMap, mainPlayer, gameShop);
 
 		int selection = 1;
 		cout << "1) Move, 2) Rest, 3) View Stats, 4) Quit: ";
@@ -93,7 +94,7 @@ int main()
 			break;
 		case 2:
 			mainPlayer.rest();
-			monster = gameMap.checkRandomEncounter();
+			monster = gameMap.checkRandomEncounter(scamander, tunnel, treasureBox);
 			if (monster != 0)
 			{
 				while (true)
@@ -131,7 +132,7 @@ int main()
 			cin>>selection;
 			if (selection==1)
 			{
-				mainPlayer.save(gameMap);
+				mainPlayer.save(gameMap.getPlayerXPos(), gameMap.getPlayerYPos());
 				cout<<"You saved the game. Goodbye!"<<endl;
 			}
 			gameOver = true;

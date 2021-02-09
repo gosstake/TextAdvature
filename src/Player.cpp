@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "Map.h"
 
 using namespace std;
 
@@ -60,10 +59,6 @@ void Player::takeDamage(int damage)
 	mHitPoints -= damage;
 }
  
- int Player::getGold()
-{
-	return mgold;
-}
 void Player::setArmor(int armor)
 {
 	mArmor += armor;
@@ -144,13 +139,8 @@ void Player::viewStats()
 	std::cout << std::endl;
 }
 
-void Player::save(Map& gameMap)
+void Player::save(int _playerXpos, int _playerYpos)
 {
-	int x;
-	int y;
-	x= gameMap.getPlayerXPos();
-	y= gameMap.getPlayerYPos();
-
 	std::ofstream Ausgabe;
 	Ausgabe.open("savedGame.txt");
 if(Ausgabe)
@@ -167,38 +157,34 @@ if(Ausgabe)
 	Ausgabe <<mWeapon.mRange.mHighDamage<<std::endl;
 	Ausgabe <<mWeapon.mRange.mLowDamage<<std::endl;
 	Ausgabe <<mgold<<std::endl;
-	Ausgabe <<x<<std::endl;
-	Ausgabe <<y<<std::endl;
+	Ausgabe <<_playerXpos<<std::endl;
+	Ausgabe <<_playerYpos<<std::endl;
 }
 	Ausgabe.close();
 }
 
-void Player::load(Map& gameMap)
+void Player::load(int& _playerXpos,int& _playerYpos)
 
 {
-	int x;
-	int y;
 	std::ifstream Eingabe;
 	Eingabe.open("savedGame.txt");
-if(Eingabe)
-{
-	Eingabe >> mClassName;
-	Eingabe >> mAccuracy;
-	Eingabe >> mHitPoints;
-	Eingabe >> mMaxHitPoints;
-	Eingabe >> mExpPoints;
-	Eingabe >> mNextLevelExp;
-	Eingabe >> mArmor;
-	Eingabe >> mLevel;
-	Eingabe >> mWeapon.mName;
-	Eingabe >> mWeapon.mRange.mHighDamage;
-	Eingabe >> mWeapon.mRange.mLowDamage;
-	Eingabe >> mgold;
-	Eingabe >> x;
-	Eingabe >> y;
-	gameMap.setPlayerXPos(x);
-	gameMap.setPlayerYPos(y);
-}
+	if(Eingabe)
+	{
+		Eingabe >> mClassName;
+		Eingabe >> mAccuracy;
+		Eingabe >> mHitPoints;
+		Eingabe >> mMaxHitPoints;
+		Eingabe >> mExpPoints;
+		Eingabe >> mNextLevelExp;
+		Eingabe >> mArmor;
+		Eingabe >> mLevel;
+		Eingabe >> mWeapon.mName;
+		Eingabe >> mWeapon.mRange.mHighDamage;
+		Eingabe >> mWeapon.mRange.mLowDamage;
+		Eingabe >> mgold;
+		Eingabe >> _playerXpos;
+		Eingabe >> _playerYpos;
+	}
 	Eingabe.close();
 }
 
@@ -219,19 +205,17 @@ bool Player::gameover()
   std::cout << "Press 'n' to new start or press 'q' to quit ";
   char select;
   std::cin >> select;
+	while (true) {
+		if (select == 'n') {
+			return false;
+		} else if (select=='q') {
+			return true;
+		} else {
+			std::cout<<"invalid input"<< std::endl;
+		}
 
-  if (select == 'n')
-  {
-    return false;
-  } else if (select=='q')
-  {
-    return true;
-  }
-  else
-  {
-    std::cout<<"invalid input"<< std::endl;
-  }
-
+	}
+  
 	return true;
 }
 

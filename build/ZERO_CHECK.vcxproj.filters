@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\MyRepGHub2020\PythonReps\TextAdvature\build\CMakeFiles\fc6e3fc7166df9f4a3077c1e9d66de68\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{ECC627A5-C7A0-3878-8C20-1B6A95002D67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

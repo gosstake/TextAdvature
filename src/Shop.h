@@ -1,3 +1,8 @@
+
+// Shop
+#ifndef SHOP_H
+#define SHOP_H
+
 #include <map>
 #include <string>
 
@@ -15,3 +20,5 @@ private:
 	int mShopXPosition;
     int mShopYPosition;
 };
+
+#endif //SHOP_H

@@ -17,6 +17,7 @@ SET(app_src_h
     src/Tunnel.h
     src/Treasure.h
     src/TreasureBox.h
+    src/Shop.h
 )
 
 SET(app_src_cpp
@@ -31,6 +32,7 @@ SET(app_src_cpp
     src/Tunnel.cpp
     src/Treasure.cpp
     src/TreasureBox.cpp
+    src/Shop.cpp
 
 )
 

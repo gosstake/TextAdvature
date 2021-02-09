@@ -1,6 +1,7 @@
 #include "Map.h"
 #include <iostream>
 #include <stdlib.h> 
+#include "Player.h"
 
 using namespace std;
 
@@ -113,7 +114,7 @@ void Map::movePlayer(Tunnel &_mTunnel)
 	std::cout << std::endl;
 }
 
-bool Map::checkInPosition(int _xPosition , int _yPosition){
+bool Map::checkInPosition(int _xPosition , int _yPosition) {
 	if(mPlayerXPos == _xPosition && mPlayerYPos == _yPosition) {
 		return true;
 	}else {
@@ -198,10 +199,12 @@ Monster* Map::checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, Treas
 					std::cout << std::endl;
 				}
 			 }
+		}
 	return monster;
 }
 
-void Map::printPlayerPos()
-{
+void Map::printPlayerPos() {
 	std::cout << "Player Position = (" << mPlayerXPos << ", " << mPlayerYPos << ")" << std::endl << std::endl;
 }
+
+
