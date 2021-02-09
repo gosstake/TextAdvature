@@ -42,7 +42,7 @@ public:
 	void rest();
 	void heal();
 	void viewStats();
-	void victory(int xp);
+	void victory(int xp, int gold);
 	bool gameover();
 	void displayHitPoints();
 	bool Mana(Monster& _monster ,magicWords _nmagic );

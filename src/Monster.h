@@ -14,7 +14,7 @@ class Monster
 public:
 	Monster(const std::string& name, int hp, int acc,
 		int xpReward, int armor, const std::string& weaponName,
-		int lowDamage, int highDamage);
+		int lowDamage, int highDamage, int gold);
 	bool isDead();
 	int getXPReward();
 	std::string getName();
@@ -30,7 +30,7 @@ private:
 	int mExpReward;
 	int mArmor;
 	Weapon mWeapon;
-	
+	int mGold;
 };
 
 #endif // MONSTER_H
