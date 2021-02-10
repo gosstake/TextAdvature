@@ -56,6 +56,8 @@ void Map::displayMap(Monster& monster, Tunnel& _mTunnel, TreasureBox& _mTreasure
 						std::cout <<"U  ";
 					}else if ((!_mTreasureBox.IsEmpty()) && (i == static_cast<int>(mapHight/2 ) - _mTreasureBox.getYpos() && j == static_cast<int>(mapWidth/2) + _mTreasureBox.getXpos() )){
 						std::cout <<"[*]";
+					}else if ((i == static_cast<int>(mapHight/2 ) - 5 && j == static_cast<int>(mapWidth/2) + 3 )){
+						std::cout <<"[-]  ";
 					}else if (j == static_cast<int>(mapWidth/2) && i == static_cast<int>(mapHight/2 ) ){
 						std::cout <<"+  ";
 					}else {

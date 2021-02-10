@@ -91,7 +91,7 @@ int main()
 					std::cout << "Enter Item number to buy it [0 to Skip] :" ;
 					int selection = 0;
 					std::cin >> selection;
-					while (true) {
+					while (selection != 0) {
 						std::cin >> selection;
 						if (selection > 0) {
 							mainPlayer.buyWeapon(scamander.getWeapon(selection));

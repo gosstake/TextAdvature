@@ -484,10 +484,10 @@ void Player::displayMagicWords(){
 		if (Magic == Bombarda) {	
 			std::cout << i << ": " << std::string("Explosion")<< std::endl;
 		}else if(Magic == Bombarda_Maxima) {
-			std::string sTemp = "Große Explosion";
+			std::string sTemp = "GroSSe Explosion";
 			std::cout << i << ": " << sTemp << std::endl;
 		} else if(Magic == Diffindo){
-			std::cout << i << ": " << "Zerreißt oder durchtrennt Gegenstände"<< std::endl;
+			std::cout << i << ": " << "ZerreiSSt oder durchtrennt Gegenstaende"<< std::endl;
 		}
 		 
 	}
@@ -506,6 +506,7 @@ void Player::displayHealingWords(){
 	}
 }
 
+//buy weapon from scamander 
 void Player::buyWeapon(Weapon _weapon) {
 
 	if (_weapon.mPrice > mgold ) {

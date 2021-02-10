@@ -3,7 +3,7 @@
 #ifndef SHOP_H
 #define SHOP_H
 
-#include <map>
+#include <Map>
 #include <string>
 
 class Shop
