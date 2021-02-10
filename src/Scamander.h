@@ -15,9 +15,13 @@ public:
 	std::string getName();
     void displayObjectsList();
 	Weapon getWeapon(unsigned int Index);
+
+	bool getMeetPlayer();
+	void setMeetPlayer(bool _meet);
 private:
 	std::string mName;
     std::vector<Weapon> Weapons;
+	bool mMeetPlayer;
 	 
 };
 

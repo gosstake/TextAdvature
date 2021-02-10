@@ -52,6 +52,7 @@ public:
 	void getCollactables(std::vector<Treasure> _Treasures);
 	void switchWeapon();
 	void setArmor(int armor);
+	void buyWeapon(Weapon _weapon);
 	int getGold();
 	void setGold(int gold);
 	void save(int _playerXpos, int _playerYpos);

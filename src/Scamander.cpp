@@ -64,6 +64,13 @@ std::string Scamander::getName()
 	return mName;
 }
 
+bool Scamander::getMeetPlayer(){
+	return mMeetPlayer;
+}
+
+void Scamander::setMeetPlayer(bool _meet){
+	mMeetPlayer = _meet;
+}
 
 void Scamander::displayObjectsList()
 {

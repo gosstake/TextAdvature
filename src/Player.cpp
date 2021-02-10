@@ -506,6 +506,18 @@ void Player::displayHealingWords(){
 	}
 }
 
+void Player::buyWeapon(Weapon _weapon) {
+
+	if (_weapon.mPrice > mgold ) {
+		weapons.push_back(_weapon);
+		mgold = mgold - _weapon.mPrice;
+	} else {
+		std::cout << "you habe not enough Gold to buy this Item !! "<< std::endl;
+	}
+	
+
+}
+
 magicWords Player::getMagicWords(int _selection){
 		magicWords Magic = static_cast<magicWords>(_selection);
 		if (Magic == Bombarda) {	

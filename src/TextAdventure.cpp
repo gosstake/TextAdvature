@@ -44,8 +44,6 @@ int main()
 	{
 		cout << "==================== Next Round ==================== ";
 		gameMap.printPlayerPos();
-		
-		gameMap.printPlayerPos();
 		gameShop.playerArrived(gameMap, mainPlayer, gameShop);
 
 		int selection = 1;
@@ -89,7 +87,21 @@ int main()
 				delete monster;
 				monster = 0;
 			}else {
-
+				if(scamander.getMeetPlayer()){
+					std::cout << "Enter Item number to buy it [0 to Skip] :" ;
+					int selection = 0;
+					std::cin >> selection;
+					while (true) {
+						std::cin >> selection;
+						if (selection > 0) {
+							mainPlayer.buyWeapon(scamander.getWeapon(selection));
+						}else {
+							break;
+						}
+					}
+					scamander.setMeetPlayer(false);
+				
+				}
 			}
 			break;
 		case 2:
