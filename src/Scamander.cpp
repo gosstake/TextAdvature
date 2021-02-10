@@ -10,6 +10,7 @@ using namespace std;
 Scamander::Scamander(const std::string& _name)
 {
     mName = _name;
+	mMeetPlayer = false;
 	// intiailize range damgage 
 	for (int i = static_cast<WeabonType>(0) ; i < lastType ; i++ ) {
 		WeabonType wType = static_cast<WeabonType>(i);

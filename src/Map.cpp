@@ -57,7 +57,7 @@ void Map::displayMap(Monster& monster, Tunnel& _mTunnel, TreasureBox& _mTreasure
 					}else if ((!_mTreasureBox.IsEmpty()) && (i == static_cast<int>(mapHight/2 ) - _mTreasureBox.getYpos() && j == static_cast<int>(mapWidth/2) + _mTreasureBox.getXpos() )){
 						std::cout <<"[*]";
 					}else if ((i == static_cast<int>(mapHight/2 ) - 5 && j == static_cast<int>(mapWidth/2) + 3 )){
-						std::cout <<"[-]  ";
+						std::cout <<"[-]";
 					}else if (j == static_cast<int>(mapWidth/2) && i == static_cast<int>(mapHight/2 ) ){
 						std::cout <<"+  ";
 					}else {
@@ -150,7 +150,7 @@ Monster* Map::checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, Treas
 	int YPosition_roll 	= RandomPosition(abs(mPlayerYPos), ydistance);
 	
 	Monster* monster = 0;
-		if ( roll < 5 ) { // 10
+		if ( roll <= 10 ) { // 10
 			std::cout << "Monster Positon Roll: X: "<< XPosition_roll << " Y: " << YPosition_roll  << " Distance form You:  X: " << xdistance <<" Y: "<< ydistance << std::endl;
 			if ((xdistance - abs(mPlayerXPos) < 2 ) && (XPosition_roll < abs(mPlayerXPos) + xdistance  && XPosition_roll > abs(mPlayerXPos) - xdistance) && (YPosition_roll < abs(mPlayerYPos) + ydistance  && YPosition_roll > abs(mPlayerYPos) - ydistance)) {
 				monster = new Monster("Orc", 10, 8, 200, 1, "Short Sword", 2, 7, 2);
@@ -179,21 +179,21 @@ Monster* Map::checkRandomEncounter(Scamander& _scamander, Tunnel& _tunnel, Treas
 				std::cout << std::endl;
 			}
 		} else {
-			 if (roll >= 6 && roll <= 10){
-				std::cout << "You encountered an Weabon sale Man !" << std::endl;
-				std::cout << "Say Hi to Scamander!" << std::endl;
-				_scamander.displayObjectsList();
-				_scamander.setMeetPlayer(true);				 
-			 } else if(roll >= 11 && roll <= 15) {
-				int xPosition = Random(-1 * (static_cast<int>(mapWidth/2 )-5) , +1 * (static_cast<int>(mapWidth/2 )-5));
+			 if (roll >= 11 && roll <= 13){
+							int xPosition = Random(-1 * (static_cast<int>(mapWidth/2 )-5) , +1 * (static_cast<int>(mapWidth/2 )-5));
 				int yPosition = Random(-1 * (static_cast<int>(mapHight/2 )-2) , +1 * (static_cast<int>(mapHight/2 )-2));
 				_tunnel.setOpen(true);
 				_tunnel.setXpos(xPosition);
 				_tunnel.setYpos(yPosition);
 				std::cout << "You encountered an Tunnel !" << xPosition << " " << yPosition << std::endl;
 				std::cout << "You can move into the tunnel by the next move !" << std::endl;
-				std::cout << std::endl;
-			 } else if((roll >= 16 && roll <= 19)) {
+				std::cout << std::endl; 
+			 } else if(roll >= 14 && roll <= 18) {
+				std::cout << "You encountered an Weabon sale Man !" << std::endl;
+				std::cout << "Say Hi to Scamander!" << std::endl;
+				_scamander.displayObjectsList();
+				_scamander.setMeetPlayer(true);	
+			 } else if((roll >= 19 && roll <= 20)) {
 
 				if (_treasureBox.IsEmpty()) {
 					int xPosition = Random(-1 * (static_cast<int>(mapWidth/2 )-5) , +1 * (static_cast<int>(mapWidth/2 )-5));

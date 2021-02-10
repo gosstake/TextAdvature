@@ -88,10 +88,9 @@ int main()
 				monster = 0;
 			}else {
 				if(scamander.getMeetPlayer()){
-					std::cout << "Enter Item number to buy it [0 to Skip] :" ;
-					int selection = 0;
-					std::cin >> selection;
-					while (selection != 0) {
+					while (true) {
+						std::cout << "Enter Item number to buy it [0 to Skip] :" ;
+						int selection = 0;
 						std::cin >> selection;
 						if (selection > 0) {
 							mainPlayer.buyWeapon(scamander.getWeapon(selection));
